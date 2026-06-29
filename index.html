@@ -8,26 +8,48 @@
 </head>
 <body>
   <div class="app-shell">
-    <header class="topbar">
-      <a class="brand" href="#" aria-label="BeatForge home">
-        <img src="assets/logo.svg" alt="" class="brand-mark">
-      </a>
-      <button class="icon-button active" aria-label="Home">
-        <span class="home-icon" aria-hidden="true"></span>
-      </button>
-      <label class="search">
-        <span class="search-icon" aria-hidden="true"></span>
-        <input type="search" placeholder="What beat are you building today?">
-      </label>
-      <nav class="top-links" aria-label="Primary">
-        <a href="beats.html">Browse beats</a>
-        <a href="#packs">Beat packs</a>
-        <a href="#community">Community</a>
-        <a href="about.html">About</a>
-      </nav>
-      <button class="ghost-button">Join</button>
-      <button class="pill-button">Log in</button>
-    </header>
+  <header class="topbar">
+  <a class="brand" href="#" aria-label="BeatForge home">
+    <img src="assets/logo.svg" alt="" class="brand-mark">
+  </a>
+  <button class="icon-button active" aria-label="Home">
+    <span class="home-icon" aria-hidden="true"></span>
+  </button>
+  <label class="search">
+    <span class="search-icon" aria-hidden="true"></span>
+    <input type="search" placeholder="What beat are you building today?">
+  </label>
+  <nav class="top-links" aria-label="Primary">
+    <a href="beats.html">Browse beats</a>
+    <a href="#packs">Beat packs</a>
+    <a href="#community">Community</a>
+    <a href="about.html">About</a>
+  </nav>
+  <button class="ghost-button">Join</button>
+  <button class="pill-button">Log in</button>
+  <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</header>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="beats.html">Browse beats</a>
+  <a href="index.html#packs">Beat packs</a>
+  <a href="index.html#community">Community</a>
+  <a href="about.html">About</a>
+  <a href="#">Trending</a>
+  <a href="#">Exclusive beats</a>
+  <a href="#">Free downloads</a>
+  <div class="mobile-nav-actions">
+    <button class="mobile-join">Join</button>
+    <button class="mobile-login">Log in</button>
+  </div>
+</nav>
 
     <aside class="sidebar">
       <div class="library-head">

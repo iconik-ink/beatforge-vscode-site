@@ -214,3 +214,60 @@ if (slider && sliderNav) {
     }
   });
 }
+// ── Mobile menu ───────────────────────────────────────
+(function initMobileMenu() {
+  const toggle = document.getElementById('mobileMenuToggle');
+  const overlay = document.getElementById('mobileNavOverlay');
+  const nav = document.getElementById('mobileNav');
+
+  if (!toggle || !overlay || !nav) return;
+
+  function openMenu() {
+    toggle.classList.add('active');
+    overlay.classList.add('open');
+    nav.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    toggle.classList.remove('active');
+    overlay.classList.remove('open');
+    nav.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  toggle.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (nav.classList.contains('open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  overlay.addEventListener('click', closeMenu);
+
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && nav.classList.contains('open')) {
+      closeMenu();
+    }
+  });
+
+  // Close when a nav link is clicked
+  nav.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Handle mobile login/join buttons
+  nav.querySelectorAll('.mobile-join, .mobile-login').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      closeMenu();
+      // Trigger the desktop login button if it's the login button
+      if (btn.classList.contains('mobile-login')) {
+        const desktopLogin = document.querySelector('.pill-button');
+        if (desktopLogin) desktopLogin.click();
+      }
+    });
+  });
+})();
